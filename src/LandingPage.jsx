@@ -75,7 +75,17 @@ class LandingPage extends Component {
     </div>
   </nav>
 
-  
+  <ToastContainer 
+          position="top-center"
+          autoClose={5000}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme={'colored'}
+        />
   <div className="relative z-10 container px-4 mx-auto">
     <div className="max-w-4xl pt-20">
       <p className="max-w-sm text-lg text-white" data-config-id="desc">You are minutes away from saving on your Burial Insurance</p>
