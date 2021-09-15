@@ -13,27 +13,53 @@ import HeaderImage from './Assets/business.jpeg'
 class LandingPage extends Component {
 
  
-    nextStep(values){
+  constructor(props) {
+    super(props);
+
+    this.state = {zip_code: ''};
+
+    this.nextStep = this.nextStep.bind(this);
+    this.nextStep = this.nextStep.bind(this);
+  }
+
+
+  nextStep (values) {
         
-        let zipValue = document.getElementById('zipCode').value;
+    let zipValue = document.getElementById('zipCode').value;
 
-        if(zipValue.length < 5 ){
-            toast.error("Please enter a valid zipcode");
-
-            values.preventDefault();
-        }
+    if(zipValue.length < 5){
+        toast.error("😬 Please enter a valid zip code!");  
+        
+        values.preventDefault();
     }
 
+    else{
 
+      values.preventDefault();
+
+      toast.dismiss();
+
+      console.log("success: ", zipValue);
+
+      this.setState({zip_code: zipValue})
+
+      // this.props.setZipCode(zipValue);
+
+      console.log("updated props with value: ", zipValue);
+
+      // this.props.history.push("/auto/step1?zip_code=" + zipValue);
+    }
+      
+  }
+
+  autoFocusClick() {
+    document.getElementById('zipCode').focus();
+  }
 
     render() {
         return (
             <div>
               
-              
-
-
-
 {/* End of header with Form */}
 
 {/* Start Of how it works */}
@@ -54,10 +80,15 @@ class LandingPage extends Component {
     <div className="max-w-4xl pt-20">
       <p className="max-w-sm text-lg text-white" data-config-id="desc">You are minutes away from saving on your Burial Insurance</p>
       <h2 className="mt-8 mb-8 text-5xl lg:text-7xl text-white font-bold" data-config-id="header">Compare Multiple Burial Insurance Quotes</h2>
-      <div className="flex flex-wrap lg:flex-nowrap max-w-md">
-        <input className="mb-2 lg:mb-0 w-full lg:w-2/3 py-4 pl-4 text-sm border" type="text" placeholder="Enter Your Zipcode" />
-        <button className="w-full lg:w-auto py-5 px-8 text-sm font-bold uppercase bg-blue-500 hover:bg-blue-400" data-config-id="hero-primary-action">Get&nbsp;started&nbsp;Now</button>
-      </div>
+      <form onSubmit={this.nextStep} >
+
+<div className="flex justify items-center formSection">
+<input className="appearance-none w-1/2 p-3 text-lg font-semibold leading-none bg-white rounded zipInput " type="text" name="addressField" placeholder="Zip Code" value={this.state.value} id="zipCode" maxLength={5}/>
+<button className="px-6 py-4 mb-3 m-2 text-md font-semibold bg-blue-500 text-white rounded transition duration-200 zipSubmit" type="submit">Start My Quote</button>
+
+</div>
+
+</form>
     </div>
   </div>
   <div className="hidden navbar-menu relative z-50">

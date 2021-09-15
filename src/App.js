@@ -6,7 +6,23 @@ import './App.css';
 
 import LandingPage from './LandingPage';
 
-class App extends Component {
+class App extends Component { 
+  
+  
+  state = {
+  route: '/',
+  routes: [
+      '/',
+  ]
+}
+
+
+// Handle change Route
+changeRoute = () => {
+  this.setState({
+    route: '',
+  });
+};
 
   render(){
       return(
