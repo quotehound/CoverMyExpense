@@ -8,7 +8,37 @@
     background-position: center;
     min-height: 80vh;
 
-}.spanText {
+}
+
+a {
+    cursor: pointer;
+}
+
+.startIcon {
+    min-width: 150px;
+}
+
+
+.lastSec {
+    background-image: url('./Assets/Sunsets.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.icon {
+    width: 200px;
+}
+ 
+.check {
+    background-image: url('./Assets/check.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.spanText {
     font-weight: bold;
 }
 
@@ -16,10 +46,15 @@
     border: 1px solid #cccc;
     color: #488BFF;  
     max-width: 200px; 
+    height: 75px;
+    font-size: 22px;
 }
 
  .zipSubmit{ 
-     max-width: 200px;     
+     max-width: 200px; 
+     height: 75px;
+     font-size: 18px;
+    
  }
 
  .logo {
@@ -86,6 +121,17 @@
         display:block;
     }
 
+
+
+.backdrop {
+
+    background-image: url('./Assets/header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 80%;
+    min-height: 60vh;
+
+}
     
 }
 

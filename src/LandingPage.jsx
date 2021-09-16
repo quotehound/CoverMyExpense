@@ -2,13 +2,21 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 
 import './LandingPage.css';
+import NavBar from './NavBar';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 
 import Logo from './Assets/cme.png';
-import HeaderImage from './Assets/business.jpeg'
+import HeaderImage from './Assets/business.jpeg';
+
+import Money from './Assets/Money.svg';
+import Connect from './Assets/Connect.svg';
+import Form from './Assets/Form.svg';
+import Sunset from './Assets/Sunsets.png';
+import Check from './Assets/check.png';
+
 
 class LandingPage extends Component {
 
@@ -32,7 +40,6 @@ class LandingPage extends Component {
         
         values.preventDefault();
     }
-
     else{
 
       values.preventDefault();
@@ -43,11 +50,11 @@ class LandingPage extends Component {
 
       this.setState({zip_code: zipValue})
 
-      // this.props.setZipCode(zipValue);
+      this.props.setZipCode(zipValue);
 
       console.log("updated props with value: ", zipValue);
 
-      // this.props.history.push("/auto/step1?zip_code=" + zipValue);
+      this.props.history.push("/gender?zip=" +  zipValue);
     }
       
   }
@@ -63,22 +70,12 @@ class LandingPage extends Component {
 {/* End of header with Form */}
 
 {/* Start Of how it works */}
-<section className="relative pb-40 overflow-hidden backdrop">
-  <nav className="relative py-8 px-4 lg:px-10 z-10">
-    <div className="flex justify-between items-center">
-      <a className="text-xl text-white font-semibold" href="#" data-config-id="brand">
-        <img className="h-7" src="bendis-assets/logos/bendis-light.svg" alt="" width="auto" />
-      </a>
-      <button className="navbar-burger">
-        <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x={2} y={6} width={20} height={2} fill="white" /><rect x={2} y={11} width={20} height={2} fill="white" /><rect x={2} y={16} width={20} height={2} fill="white" /></svg>
-      </button>
-    </div>
-  </nav>
+<section className="relative pb-10 overflow-hidden backdrop">
 
   <ToastContainer 
           position="top-center"
           autoClose={5000}
-          newestOnTop={false}
+          newestOnTop={true}
           closeOnClick
           rtl={false}
           pauseOnFocusLoss
@@ -88,13 +85,13 @@ class LandingPage extends Component {
         />
   <div className="relative z-10 container px-4 mx-auto">
     <div className="max-w-4xl pt-20">
-      <p className="max-w-sm text-lg text-white" data-config-id="desc">You are minutes away from saving on your Burial Insurance</p>
+      
       <h2 className="mt-8 mb-8 text-5xl lg:text-7xl text-white font-bold" data-config-id="header">Compare Multiple Burial Insurance Quotes</h2>
       <form onSubmit={this.nextStep} >
 
-<div className="flex justify items-center formSection">
-<input className="appearance-none w-1/2 p-3 text-lg font-semibold leading-none bg-white rounded zipInput " type="text" name="addressField" placeholder="Zip Code" value={this.state.value} id="zipCode" maxLength={5}/>
-<button className="px-6 py-4 mb-3 m-2 text-md font-semibold bg-blue-500 text-white rounded transition duration-200 zipSubmit" type="submit">Start My Quote</button>
+<div className="flex justify items-center formSection py-10">
+<input className="appearance-none w-1/2 p-3 text-lg font-semibold leading-none bg-white rounded zipInput " type="text" name="addressField" placeholder="Zip Code" pattern="\d*" value={this.state.value} id="zipCode" maxLength={5}/>
+<button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 zipSubmit" type="submit">Start My Quote</button>
 
 </div>
 
@@ -118,28 +115,89 @@ class LandingPage extends Component {
 {/* End of how it works */}
 
 {/* CTA Section Start */}
-<section className="relative py-20  bg-gray-100">
-  <div className="relative container px-4 mx-auto">
-    <div className="flex flex-wrap items-center -mx-4">
-    <div className="relative w-full lg:w-1/2 px-4">
-        <img className="rounded-xl object-cover" src="https://images.unsplash.com/photo-1524508762098-fd966ffb6ef9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" data-config-id="image" />
-      </div>
-      <div className="w-full lg:w-1/2 px-4 mb-10 lg:mb-0 ">
-        <div className="max-w-lg ">
-          <span className="text-lg text-blue-400 font-semibold" data-config-id="label">Start Saving On Your <span className="spanText">Auto Insurance</span></span>
-          <h2 className="mt-8 mb-6 lg:mb-10 lg:pr-8 text-4xl font-semibold" data-config-id="header">Saving at your finger tips...</h2>
-          <p className="text-md text-gray-500" data-config-id="desc">Car insurance is required in almost every U.S. state, but finding the right policy at a good price can be a challenge. If you're wondering which insurer provides the best rates or what type of coverage you need, the answers to these questions depend on a number of factors. <br/> Fortunately, there is <span className="spanText">Quotehound</span>. Just fill out our quick form and start saving hundreds!</p>
-          <a className="inline-block px-8 py-4 mt-5 text-sm text-white font-medium leading-normal bg-blue-500 hover:bg-blue-600 rounded transition duration-200" onClick={this.autoFocusClick}>Start Your Free Quote!</a>
+<section className="py-20">
+  <div className="container px-4 mx-auto">
+    <div className="flex flex-wrap -mx-4">
+      <div className="w-full lg:w-1/3 px-4 mb-12 lg:mb-0 text-center">
+        <span className="inline-block mx-auto mb-6 flex items-center justify-center rounded-full">
+                  <img src={Form} className="startIcon" />
 
-        </div>
+        </span>
+        <h3 className="mb-4 text-2xl font-bold font-heading" data-config-id="header3">Fill Out Our Simple Form</h3>
+        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Our Form is simple and easy! Finish it in 2 minutes</p>
       </div>
+      <div className="w-full lg:w-1/3 px-4 mb-12 lg:mb-0 text-center">
+      <span className="inline-block mx-auto mb-6 flex items-center justify-center rounded-full">
+                  <img src={Connect} className="startIcon"  />
 
+        </span>
+        <h3 className="mb-4 text-2xl font-bold font-heading" data-config-id="header3">Get Connected </h3>
+        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Connect with real rates accross our network and geet connected with real rates.</p>
+
+
+      </div>
+      <div className="w-full lg:w-1/3 px-4 mb-12 lg:mb-0 text-center">
+      <span className="inline-block mx-auto mb-6 flex items-center justify-center rounded-full">
+                  <img src={Money} className="startIcon"/>
+
+        </span>
+        <h3 className="mb-4 text-2xl font-bold font-heading" data-config-id="header3">Save Money</h3>
+        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Start saving money and relax with your brand new rates.</p>
+      </div>
     </div>
+
+   <div className="inline-block mx-auto mb-6 flex items-center justify-center rounded-full p-10 "> 
+   <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-white font-medium leafing-normal bg-blue-400 hover:bg-blue-600 hover:shadow-lg rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your Free Quote</a>
+
+   </div>
+
   </div>
-  <img className="hidden xl:block absolute top-0 right-0 mt-52" src="zeus-assets/icons/dots/yellow-dot-right-shield.svg" alt="" />
 </section>
 
 {/* CTA Section End */}
+
+<section className="relative py-20 bg-gray-50">
+  <div className="container px-4 mx-auto">
+    <div className="w-full lg:w-1/2 mb-12">
+      <div className="lg:max-w-md">
+        <h2 className="mb-4 lg:mb-6 text-4xl md:text-5xl mt-3 font-bold font-heading" data-config-id="header">We make insurance <b> Easy </b></h2>
+        <p className="mb-8 text-lg text-gray-500 leading-loose" data-config-id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa nibh, pulvinar vitae aliquet nec, accumsan aliquet orci.</p>
+        <div className="flex items-start py-4">
+          <div className="mr-5 text-gray-500">
+            <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle  cx={24} cy={24} r="23.5" stroke="#C2C9D2" />
+            </svg>
+          </div>
+          <div className="max-w-sm">
+            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header1">Quick problem-solving contact</h3>
+          </div>
+        </div>
+        <div className="flex items-start py-4">
+          <div className="mr-5 text-gray-500">
+          <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle  cx={24} cy={24} r="23.5" stroke="#C2C9D2" />
+            </svg>
+          </div>
+          <div className="max-w-sm">
+            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header2">Making changes simple and easy</h3>
+          </div>
+        </div>
+        <div className="flex items-start py-4">
+          <div className="mr-5 text-gray-500">
+          <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle  cx={24} cy={24} r="23.5" stroke="#C2C9D2" />
+            </svg>
+          </div>
+          <div className="max-w-sm">
+            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header3">Exchangeable at any time</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="h-96 lg:h-auto lg:absolute top-0 right-0 bottom-0 lg:w-1/2 bg-no-repeat bg-cover lastSec" data-config-id="image" />
+</section>
+
 
 
 {/* Footer  */}
@@ -159,7 +217,7 @@ class LandingPage extends Component {
             <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium" href="#" data-config-id="01_link2">Privacy Policy</a></li>
             <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium" href="#" data-config-id="01_link3">Terms & Conditions</a></li>
           </ul>
-          <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-white font-medium leafing-normal bg-blue-500 hover:bg-blue-300 rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your Free Quote</a>
+          <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-white font-medium leafing-normal bg-blue-500 hover:bg-blue-300 hover:shadow-lg rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your Free Quote</a>
         </div>
         <p className="mt-6 lg:hidden text-sm text-gray-500" data-config-id="copy">All rights reserved © Quotehound 2021</p>
       </div>
