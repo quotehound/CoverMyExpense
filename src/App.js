@@ -5,6 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import NavBar from './NavBar';
 
+import Logo from './Assets/cme.png';
+
 
 import LandingPage from './LandingPage';
 
@@ -64,6 +66,7 @@ class App extends Component {
 
             <Route path='/gender' component={Gender} exact />
           </Switch>
+
         </div>
       </BrowserRouter>
     )

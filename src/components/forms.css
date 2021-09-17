@@ -11,9 +11,20 @@
 
 .formDiv {
     min-width: 50%;
-    height: 50vh;
+    min-height: 60vh;
+    margin-top: 15px;
        
 }
+
+.back {
+    /* background: url('../Assets/hero-wave.svg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: auto; */
+    padding-top: 50px;
+}
+
+
 
 .header {
     text-align: center;
