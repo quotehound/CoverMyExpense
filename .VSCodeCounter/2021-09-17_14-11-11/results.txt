@@ -1,0 +1,58 @@
+Date : 2021-09-17 14:11:11
+Directory : /Users/davidverduzco/Desktop/v2cme
+Total : 25 files,  17871 codes, 21 comments, 245 blanks, all 18137 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          3 |     17,086 |          0 |          2 |     17,088 |
+| JavaScript |         10 |        418 |         10 |        128 |        556 |
+| CSS        |          4 |        228 |         11 |         73 |        312 |
+| XML        |          6 |         80 |          0 |          5 |         85 |
+| Markdown   |          1 |         39 |          0 |         33 |         72 |
+| HTML       |          1 |         20 |          0 |          4 |         24 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                         | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                            |         25 |     17,871 |         21 |        245 |     18,137 |
+| public                                                       |          2 |         45 |          0 |          5 |         50 |
+| src                                                          |         18 |        703 |         19 |        204 |        926 |
+| src/Assets                                                   |          5 |         79 |          0 |          5 |         84 |
+| src/components                                               |          2 |        170 |         10 |         61 |        241 |
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                     | language   | code       | comment    | blank      | total      |
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/davidverduzco/Desktop/v2cme/README.md                 | Markdown   |         39 |          0 |         33 |         72 |
+| /Users/davidverduzco/Desktop/v2cme/craco.config.js           | JavaScript |         10 |          1 |          1 |         12 |
+| /Users/davidverduzco/Desktop/v2cme/package-lock.json         | JSON       |     17,013 |          0 |          1 |     17,014 |
+| /Users/davidverduzco/Desktop/v2cme/package.json              | JSON       |         48 |          0 |          0 |         48 |
+| /Users/davidverduzco/Desktop/v2cme/public/index.html         | HTML       |         20 |          0 |          4 |         24 |
+| /Users/davidverduzco/Desktop/v2cme/public/manifest.json      | JSON       |         25 |          0 |          1 |         26 |
+| /Users/davidverduzco/Desktop/v2cme/src/App.css               | CSS        |         33 |          0 |          6 |         39 |
+| /Users/davidverduzco/Desktop/v2cme/src/App.js                | JavaScript |         53 |          1 |         22 |         76 |
+| /Users/davidverduzco/Desktop/v2cme/src/App.test.js           | JavaScript |          7 |          0 |          2 |          9 |
+| /Users/davidverduzco/Desktop/v2cme/src/Assets/Connect.svg    | XML        |         12 |          0 |          1 |         13 |
+| /Users/davidverduzco/Desktop/v2cme/src/Assets/Connnect.svg   | XML        |         12 |          0 |          1 |         13 |
+| /Users/davidverduzco/Desktop/v2cme/src/Assets/Form.svg       | XML        |         25 |          0 |          1 |         26 |
+| /Users/davidverduzco/Desktop/v2cme/src/Assets/Money.svg      | XML        |         25 |          0 |          1 |         26 |
+| /Users/davidverduzco/Desktop/v2cme/src/Assets/hero-wave.svg  | XML        |          5 |          0 |          1 |          6 |
+| /Users/davidverduzco/Desktop/v2cme/src/LandingPage.css       | CSS        |        119 |          0 |         39 |        158 |
+| /Users/davidverduzco/Desktop/v2cme/src/LandingPage.jsx       | JavaScript |        181 |          0 |         52 |        233 |
+| /Users/davidverduzco/Desktop/v2cme/src/NavBar.jsx            | JavaScript |         19 |          0 |          7 |         26 |
+| /Users/davidverduzco/Desktop/v2cme/src/components/Gender.jsx | JavaScript |        109 |          0 |         36 |        145 |
+| /Users/davidverduzco/Desktop/v2cme/src/components/forms.css  | CSS        |         61 |         10 |         25 |         96 |
+| /Users/davidverduzco/Desktop/v2cme/src/index.css             | CSS        |         15 |          1 |          3 |         19 |
+| /Users/davidverduzco/Desktop/v2cme/src/index.js              | JavaScript |         13 |          3 |          4 |         20 |
+| /Users/davidverduzco/Desktop/v2cme/src/logo.svg              | XML        |          1 |          0 |          0 |          1 |
+| /Users/davidverduzco/Desktop/v2cme/src/reportWebVitals.js    | JavaScript |         12 |          0 |          2 |         14 |
+| /Users/davidverduzco/Desktop/v2cme/src/setupTests.js         | JavaScript |          1 |          4 |          1 |          6 |
+| /Users/davidverduzco/Desktop/v2cme/tailwind.config.js        | JavaScript |         13 |          1 |          1 |         15 |
+| Total                                                        |            |     17,871 |         21 |        245 |     18,137 |
++--------------------------------------------------------------+------------+------------+------------+------------+------------+

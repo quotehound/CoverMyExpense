@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
+  
 import { withRouter } from 'react-router';
 
 import Logo from '../Assets/cme.png'
@@ -13,10 +14,27 @@ import './forms.css';
 
 class Gender extends Component {
 
+
+  onFinish = (values) => {
+
+    values.preventDefault();
+    
+    
+  
+    let g = values.currentTarget.dataset.value;
+
+    this.props.setGender(g);
+    this.props.history.push('/dob')
+  }
+
+
   render() {
     return (
 
-      <div className="back bg-blue-500"> 
+      <div className="back bg-white"> 
+        <div className="bg-blue-500 headerText">
+                <h2>Get Your Free Life Insurance Quote</h2>
+              </div>
       <div className="bg-white rounded-lg shadow-xl sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden m-12 formDiv content-center">
       <div className="px-4 py-8 sm:px-10">
 
@@ -40,40 +58,41 @@ class Gender extends Component {
 
         <div className="test"> 
           <div className="mt-6">
-            <div className="absolute inset-0 flex items-center content-center ">
+            <div className="absolute inset-0 ">
               <div className="w-full border-gray-50">
               </div>
             </div>
 
             <div> 
-            <div className="relative flex justify-center text-sm leading-5">
+            <div className="relative flex justify-center text-sm leading-5 con">
               <span className="px-2 text-black-500 text-3xl bold header">
                 Choose Your Gender
               </span>
             </div>
           </div>
+          <form onSubmit={this.onFinish} >
           <div className="mt-6">
             <div className="w-full space-y-6">
 
-              <div className="relative flex justify-center text-sm leading-5 buttonBlock">
-                <span className="block">
+              <div className="text-sm leading-5 buttonBlock">
+                <span>
+                <button className="chooseButton bg-blue-500 rounded text-white font-bold" type="button" data-config-id="05_button" onClick={(values) => this.onFinish(values)}>Male</button>
 
-                  <button type="button" className="py-2 px-4  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg chooseButton ">
-                    Male
-                  </button>
-
-
-                  <button type="button" className="py-2 px-4  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg chooseButton ">
-                    Female
-                  </button>
-
-                  <button type="button" className="py-2 px-4  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg chooseButton ">
-                    Non-binary
-                  </button>
                 </span>
+
+                <span>
+                <button className="chooseButton bg-blue-500 rounded text-white font-bold" type="button" data-config-id="05_button" onClick={(values) => this.onFinish(values)}>Female</button>
+                </span>
+
+                <span>
+                <button className="chooseButton bg-blue-500 rounded text-white font-bold" type="button" data-config-id="05_button" onClick={(values) => this.onFinish(values)}>Non-Binary</button>
+                </span>
+                
               </div>
             </div>
           </div>
+
+          </form>
 
           </div>
 
@@ -84,7 +103,7 @@ class Gender extends Component {
 
 
       </div>
-      <footer className="text-gray-600 bg-white body-font">
+      <footer className="text-gray-600 bg-gray-50 body-font">
   <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
     <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
      <img src={Logo } className="logo" />
