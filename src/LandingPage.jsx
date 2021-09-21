@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 
 import './LandingPage.css';
-import NavBar from './NavBar';
+
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 
 import Logo from './Assets/cme.png';
-import HeaderImage from './Assets/business.jpeg';
+
 
 import Money from './Assets/Money.svg';
 import Connect from './Assets/Connect.svg';
 import Form from './Assets/Form.svg';
-import Sunset from './Assets/Sunsets.png';
-import Check from './Assets/check.png';
 
 
 class LandingPage extends Component {
@@ -102,8 +100,8 @@ class LandingPage extends Component {
     <div className="navbar-backdrop fixed inset-0 bg-blue-800 opacity-90" />
     <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-8 bg-white border-r overflow-y-auto">
       <div className="flex items-center mb-16 pr-6">
-        <a className="ml-16 mr-auto text-xl text-blue-800 font-semibold leading-none" href="#" data-config-id="brand">
-          <img className="h-7" src={Logo} alt="" width="auto" />
+        <a className="ml-16 mr-auto text-xl text-blue-800 font-semibold leading-none" href="/" data-config-id="brand">
+          <img className="h-7" src={Logo} alt="" width="auto" al />
         </a>
       </div>
      
@@ -205,7 +203,7 @@ class LandingPage extends Component {
   <div className="container mx-auto px-4">
     <div className="flex flex-wrap justify-between items-center -mx-4">
       <div className="w-full lg:w-2/6 px-4">
-        <a className="inline-block mb-6 text-gray-900 text-lg font-semibold" href="#" data-config-id="brand">
+        <a className="inline-block mb-6 text-gray-900 text-lg font-semibold" href="/" data-config-id="brand">
           <img className="h-7" src={Logo} alt="" width="auto" />
         </a>
         <p className="hidden lg:block text-sm text-gray-500" data-config-id="copy">All rights reserved © Quotehound 2021</p>
@@ -213,9 +211,9 @@ class LandingPage extends Component {
       <div className="w-full lg:w-4/6 px-4">
         <div className="flex flex-wrap items-center justify-end">
           <ul className="w-full lg:w-auto inline-flex flex-wrap mb-4 lg:mb-0 md:mr-6 lg:mr-12">
-            <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium" href="#" data-config-id="01_link1">Do Not Sell</a></li>
-            <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium" href="#" data-config-id="01_link2">Privacy Policy</a></li>
-            <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium" href="#" data-config-id="01_link3">Terms & Conditions</a></li>
+            <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium" href="/" data-config-id="01_link1">Do Not Sell</a></li>
+            <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium"  href="/" data-config-id="01_link2">Privacy Policy</a></li>
+            <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium"  href="/" data-config-id="01_link3">Terms & Conditions</a></li>
           </ul>
           <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-white font-medium leafing-normal bg-blue-500 hover:bg-blue-300 hover:shadow-lg rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your Free Quote</a>
         </div>

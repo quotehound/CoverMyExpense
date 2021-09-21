@@ -5,12 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import NavBar from './NavBar';
 
-import Logo from './Assets/cme.png';
-
-
 import LandingPage from './LandingPage';
-
 import Gender from './components/Gender';
+import Month from './components/Month'
 
 class App extends Component {
 
@@ -19,12 +16,14 @@ class App extends Component {
     route: '/',
     routes: [
       '/',
-      '/gender'
+      '/gender',
+      '/month'
     ],
 
     postData: {
       zip_code: '',
       gender: '',
+      month: '',
     },
 
   };
@@ -56,7 +55,7 @@ class App extends Component {
                     },
                   });
 
-                  console.log("Success, " + v)
+                  console.log("updated post value zip with, " + v)
                 }
                 }
 
@@ -64,7 +63,39 @@ class App extends Component {
 
             </Route>
 
-            <Route path='/gender' component={Gender} exact />
+            <Route path='/gender' exact >
+              <Gender
+
+                setGender={(v) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      gender: v,
+                    },
+                  });
+
+                  console.log(this.props.postData.gender)
+                }}
+              />
+            </Route>
+
+            <Route path='/month' exact>
+
+              <Month
+                setMonth={(v) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      month: v,
+                    },
+                  });
+
+                  console.log(this.props.postData.month)
+                }}
+              />
+
+            </Route>
+
           </Switch>
 
         </div>
@@ -73,4 +104,4 @@ class App extends Component {
   }
 }
 
-export default App; 
+export default App;
