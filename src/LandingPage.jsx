@@ -159,7 +159,7 @@ class LandingPage extends Component {
     <div className="w-full lg:w-1/2 mb-12">
       <div className="lg:max-w-md">
         <h2 className="mb-4 lg:mb-6 text-4xl md:text-5xl mt-3 font-bold font-heading" data-config-id="header">We make insurance <b> Easy </b></h2>
-        <p className="mb-8 text-lg text-gray-500 leading-loose" data-config-id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa nibh, pulvinar vitae aliquet nec, accumsan aliquet orci.</p>
+        <p className="mb-8 text-lg text-gray-500 leading-loose" data-config-id="desc">So you can enjoy the simple things in life.</p>
         <div className="flex items-start py-4">
           <div className="mr-5 text-gray-500">
             <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -167,7 +167,7 @@ class LandingPage extends Component {
             </svg>
           </div>
           <div className="max-w-sm">
-            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header1">Quick problem-solving contact</h3>
+            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header1"><b>No</b> Medical Exams</h3>
           </div>
         </div>
         <div className="flex items-start py-4">
@@ -177,7 +177,7 @@ class LandingPage extends Component {
             </svg>
           </div>
           <div className="max-w-sm">
-            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header2">Making changes simple and easy</h3>
+            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header2"><b>No</b> Waiting Period</h3>
           </div>
         </div>
         <div className="flex items-start py-4">
@@ -187,7 +187,7 @@ class LandingPage extends Component {
             </svg>
           </div>
           <div className="max-w-sm">
-            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header3">Exchangeable at any time</h3>
+            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header3"><b>No</b> Pushy Agents Or Hidden Fee's</h3>
           </div>
         </div>
       </div>
