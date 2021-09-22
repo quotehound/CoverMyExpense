@@ -13,13 +13,12 @@ class EmailPhone extends Component {
 
    
     constructor(props) {
-        
+
         super(props);
     
-        this.state = {email_address: ''}
-        this.state = {phone_home: ''}
+        // this.state = {email_address: ''}
+        // this.state = {phone_home: ''}
     
-        this.onFinish = this.onFinish.bind(this);
         this.onFinish = this.onFinish.bind(this);
       }
     
@@ -35,8 +34,10 @@ class EmailPhone extends Component {
     onFinish = (values) => {
 
         let email = document.getElementById('email_address').value;
-
         let phone = document.getElementById('phone_home').value;
+
+        document.getElementById('tele').value = phone;
+
 
         if(email.length < 2){
 
@@ -61,8 +62,6 @@ class EmailPhone extends Component {
            
         }
 
-        this.props.setEmail(email);
-        this.props.setPhone(phone);
 
         const urlSearch = window.location.search;
 
@@ -78,16 +77,29 @@ class EmailPhone extends Component {
         const firstName = urlParams.get('first_name');
         const lastName = urlParams.get('last_name');
 
-        this.props.history.push('/email-phone' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + month + '&date=' + date + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName); 
-
+       
         
         this.setState({
             loading: true 
           }, this.postFinalExpense(this.props.postData));
         
-        this.props.history.push('/thank-you');
+          this.props.history.push('/thank-you' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + month + '&date=' + date + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName + '&email=' + email + '&phone_home=' + phone); 
 
     };
+
+    postEmail = (values) => {
+
+        let email = document.getElementById('email_address').value;
+
+        this.props.setEmail(email);
+    }
+
+    postPhone = (values) => {
+        
+        let phone = document.getElementById('phone_home').value;
+
+        this.props.setPhone(phone);
+    }
 
     postFinalExpense = (postData) => {
         console.log(postData);
@@ -136,13 +148,13 @@ class EmailPhone extends Component {
 
                                     <div className="text-right">
                                         <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
-                                            40%
+                                            99%
                                         </span>
                                     </div>
                                 </div>
                                 <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-100">
 
-                                    <div style={{ width: "40%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
+                                    <div style={{ width: "99%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
 
                                 </div>
                             </div>
@@ -179,12 +191,13 @@ class EmailPhone extends Component {
                                                     <div className="flex flex-wrap -mx-4 -mb-4 md:mb-0" data-container={1}>
                                                         <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0" data-bucket={1}>
 
-                                                            <input className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " type="email" name="email_address" placeholder="Email" id="email_address"  />
+                                                            <input className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " type="email" name="email_address" placeholder="Email" id="email_address" onChange={this.postEmail}  />
                                                         </div>
 
 
                                                         <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0" data-bucket={2}>
-                                                        <NumberFormat format="(###) ###-####" mask="_"  className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " id="phone_home" placeholder="Phone Number" name="phone_home"/>
+                                                        <NumberFormat format="(###) ###-####" mask="_"  className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " id="phone_home" placeholder="Phone Number" name="phone_home" 
+                                                        onChange={this.postPhone}/>
 
                                                         </div>
                                                     </div>
@@ -198,7 +211,11 @@ class EmailPhone extends Component {
                                                
                                             </div>
 
-                                            <p className="tcpa">   <input type="hidden" id="leadid_tcpa_disclosure" />
+                                          
+                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 " type="submit">Get My Free Quote!</button>
+
+                                        </div>
+                                        <p className="tcpa">   <input type="hidden" id="leadid_tcpa_disclosure" />
  By hitting submit below, I provide my express written
                           consent to the following. Telemarketing calls, text
                           messages, emails, and postal mail from this Web site, our
@@ -220,10 +237,6 @@ class EmailPhone extends Component {
                       <a href="mailto:optout@quotehound.com">
                             {" "}
                         optout@quotehound.com </a> </p>
-                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 " type="submit">Get My Free Quote!</button>
-
-                                        </div>
-
                                     </form>
 
                                 </div>

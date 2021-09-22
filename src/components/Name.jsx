@@ -14,15 +14,15 @@ class Name extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {last_name: ''};
-        this.state = {first_name: ''};
+        // this.state = {first_name: ''};
+        // this.state = {last_name: ''};
+
 
         this.nextStep = this.nextStep.bind(this);
 
-        this.nextStep = this.nextStep.bind(this);
     }
 
-    nextStep(values){
+    nextStep = (values) => {
 
         let firstName = document.getElementById('firstName').value;
         let lastName = document.getElementById('lastName').value;
@@ -49,10 +49,9 @@ class Name extends Component {
 
             toast.dismiss();
 
-            console.log('first name is: ' + firstName + 'last name is: ' + lastName);
+            
         }
 
-        
 
         const urlSearch = window.location.search;
 
@@ -62,17 +61,32 @@ class Name extends Component {
         const gender = urlParams.get('gender');
         const coverage = urlParams.get('coverage');
         const month = urlParams.get('month');
+
         const date = urlParams.get('date');
         const year = urlParams.get('year');
         const address = urlParams.get('address');
 
-        this.props.setFName(firstName);
-            
-        this.props.setLName(lastName);
+
+        console.log('first name is: ' + firstName + ' last name is: ' + lastName);
 
         this.props.history.push('/email-phone' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + month + '&date=' + date + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName); 
 
 
+    }
+
+    postFName = (values) => {
+
+        let firstName = document.getElementById('firstName').value;
+
+        this.props.setFName(firstName)
+
+    }
+
+    postLName = (values) => {
+
+        let lastName = document.getElementById('lastName').value;
+
+        this.props.setLName(lastName)
     }
 
 
@@ -92,13 +106,13 @@ class Name extends Component {
 
                                     <div className="text-right">
                                         <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
-                                            40%
+                                            87%
                                         </span>
                                     </div>
                                 </div>
                                 <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-100">
 
-                                    <div style={{ width: "40%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
+                                    <div style={{ width: "87%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
 
                                 </div>
                             </div>
@@ -132,15 +146,16 @@ class Name extends Component {
 
                                                 <div className="text-sm leading-5 buttonBlockRow">
 
-                                                    <div className="flex flex-wrap -mx-4 -mb-4 md:mb-0" data-container={1}>
-                                                        <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0" data-bucket={1}>
+                                                    <div className="flex flex-wrap -mx-4 -mb-4 md:mb-0" >
+                                                        <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0">
 
-                                                            <input className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " type="text" name="firstName" placeholder="First Name" id="firstName" minLength={1} />
+                                                            <input className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " type="text" name="firstName" placeholder="First Name" id="firstName"  onChange={this.postFName}/>
                                                         </div>
 
 
-                                                        <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0" data-bucket={2}>
-                                                            <input className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " type="text" name="Last Name" placeholder="Last Name" id="lastName" minLength={1} />
+                                                        <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0" >
+
+                                                            <input className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " type="text" name="lastName" placeholder="Last Name" id="lastName" onChange={this.postLName} />
                                                         </div>
                                                     </div>
 
@@ -150,7 +165,7 @@ class Name extends Component {
 
                                                 </div>
                                             </div>
-                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 " type="submit">Next</button>
+                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 " type="submit" onClick={this.nextStep}>Next</button>
 
                                         </div>
 

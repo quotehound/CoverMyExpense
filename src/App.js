@@ -14,6 +14,8 @@ import Year from './components/Year';
 import Address from './components/Address';
 import Name from './components/Name';
 import EmailPhone from './components/Email&Phone';
+import ThankYou from './components/ThankYou';
+
 
 class App extends Component {
 
@@ -30,24 +32,25 @@ class App extends Component {
       '/year',
       '/address',
       '/name',
-      '/email-phone'
+      '/email-phone',
+      '/thank-you'
 
     ],
 
     postData: {
 
       lp_campaign_id: '60ec904883e96',
-			lp_campaign_key: 'HdnykrcQ76bVq8BtWmFK',
-			lp_s1: '12',
-			lp_s2: '13',
-			landing_Page: 'covermyexpense.com',
-			TCPA_Consent: 'Yes',
-			TCPA_Language:
-				'By clicking Get My Quote I provide my electronic signature and express written consent to telemarketing calls, text messages, emails, and postal mail from this Web site, our marketing and re-marketing network, and up to eight insurance companies or their affiliates or representatives at the phone number (including wireless number), email address, and postal address provided by me. I consent to calls and text messages transmitting insurance quotes, or seeking related additional information from me, using an Automatic Telephone Dialing System or prerecorded or artificial voices. I consent that my signature is not a condition of purchasing any property, goods, or services and that I may revoke my consent at any time.',
-			trusted_form_cert_id: '',
-			jornaya_lead_id: '',
+      lp_campaign_key: 'HdnykrcQ76bVq8BtWmFK',
+      lp_s1: '12',
+      lp_s2: '13',
+      landing_Page: 'covermyexpense.com',
+      TCPA_Consent: 'Yes',
+      TCPA_Language:
+        'By clicking Get My Quote I provide my electronic signature and express written consent to telemarketing calls, text messages, emails, and postal mail from this Web site, our marketing and re-marketing network, and up to eight insurance companies or their affiliates or representatives at the phone number (including wireless number), email address, and postal address provided by me. I consent to calls and text messages transmitting insurance quotes, or seeking related additional information from me, using an Automatic Telephone Dialing System or prerecorded or artificial voices. I consent that my signature is not a condition of purchasing any property, goods, or services and that I may revoke my consent at any time.',
+      trusted_form_cert_id: '',
+      jornaya_lead_id: '',
       IP_Address: '',
-			user_agent: navigator.userAgent,
+      user_agent: navigator.userAgent,
       zip_code: '',
       desired_coverage: '',
       gender: '',
@@ -65,6 +68,52 @@ class App extends Component {
     },
 
   };
+
+    callMediaAlpha = () => {
+
+  		var tempArray = {
+         zip: this.state.zip_code,
+  }
+
+  		window.MediaAlphaExchange = {    
+  			"data": {       
+  				  "zip": tempArray.zip,   
+  			  },   
+  			"placement_id": "YiPFAJc_r0i9fsZr0uP7vvicsinK3Q",    
+  			"sub_1": "test sub id",    
+  			 "type": "ad_unit",   
+  			   "version": 17 }; 
+
+  	  window.MediaAlphaExchange__load('mediaalpha_placeholder'); 
+
+  	   }
+
+
+  	  UNSAFE_componentWillUpdate  = () => {
+  		console.log(this.state.postData);
+  	  };
+
+
+
+  	copyValuesToPostData2 = () => {
+  		var tempArray = {
+  			zip: this.state.postData.zip_code,
+  		};
+  		this.setState({ postData2: tempArray });
+  		// var MediaAlphaExchange = { 
+  		// 	"data": {
+  		// 	   "zip": "",
+  		// 	},
+  		// 	"placement_id": "YiPFAJc_r0i9fsZr0uP7vvicsinK3Q",
+  		// 	"sub_1": "test sub id",
+  		// 	"type": "ad_unit",
+  		// 	"version": 17
+  		//  };
+  		 console.log("SetMA");
+  //MediaAlphaExchange__load('mediaalpha_placeholder');
+  		return this.state.postData2;
+  	};
+
 
 
   // Handle change Route
@@ -89,7 +138,7 @@ class App extends Component {
                   this.setState({
                     postData: {
                       ...this.state.postData,
-                      jornaya_lead_id: document.getElementById('leadid_token').value, 
+                      jornaya_lead_id: document.getElementById('leadid_token').value,
                       trusted_form_cert_id: document.getElementById('xxTrustedFormToken_0').value,
                       zip_code: v,
                     },
@@ -105,16 +154,16 @@ class App extends Component {
             <Route path='/coverage' exact>
               <Coverage
 
-              setCoverage={(v) => {
-                this.setState({
-                  postData: {
-                    ...this.state.postData,
-                    desired_coverage: v,
-                  },
-                });
-              }}
+                setCoverage={(v) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      desired_coverage: v,
+                    },
+                  });
+                }}
 
-                />
+              />
 
             </Route>
 
@@ -158,17 +207,17 @@ class App extends Component {
                   this.setState({
                     postData: {
                       ...this.state.postData,
-                    date: v,
+                      date: v,
                     },
                   });
                 }}
 
-                />
+              />
             </Route>
 
             <Route path='/year' exact >
 
-              <Year 
+              <Year
 
                 setYear={(v) => {
                   this.setState({
@@ -189,52 +238,62 @@ class App extends Component {
                   });
                 }}
               />
-            </Route> 
-
-            <Route path='/address' exact> 
-
-            <Address
-              setAddress={(v) => {
-                this.setState({
-                  postData: {
-                    ...this.state.postData,
-                    address: v,
-                  },
-                });
-              }}
-            />
             </Route>
 
-            <Route path='/name'exact>
+            <Route path='/address' exact>
+
+              <Address
+                setAddress={(v) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      address: v,
+                    },
+                  });
+                }}
+              />
+            </Route>
+
+            <Route path='/name' exact>
 
               <Name
 
-              setFName={(v) => {
-                this.setState({
-                  postData: {
-                    ...this.state.postData,
-                    lp_s3: v,
-                  },
-                });
-              }}
 
-              setLName={(v) => {
-                this.setState({
-                  postData: {
-                    ...this.state.postData,
-                    last_name: v,
-                  },
-                });
-              }}
+                setFName={(v) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      first_name: v,
+                    },
+                  });
+
+
+                }}
+
+                setLName={(v) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      last_name: v,
+                    },
+                  });
+                }}
+
+
+
+
+
 
               />
 
-              </Route>
+            </Route>
 
-              <Route path='/email-phone' exact>
+            <Route path='/email-phone' exact>
 
-                <EmailPhone
+              <EmailPhone
 
+                email_address={this.state.postData.email_address}
+                phone_home={this.state.postData.phone_home}
 
                 setEmail={(v) => {
                   this.setState({
@@ -248,7 +307,7 @@ class App extends Component {
                 setPhone={(v) => {
                   this.setState({
                     postData: {
-                      
+
                       ...this.state.postData,
                       phone_home: v,
                     },
@@ -259,7 +318,15 @@ class App extends Component {
                 postData={this.state.postData}
 
 
-/>
+              />
+            </Route>
+
+            <Route path='/thank-you' exact>
+              <ThankYou
+
+                postData2={this.state.postData}
+
+              />
             </Route>
           </Switch>
 
