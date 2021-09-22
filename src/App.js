@@ -16,6 +16,8 @@ import Name from './components/Name';
 import EmailPhone from './components/Email&Phone';
 import ThankYou from './components/ThankYou';
 
+import MA from './MA';
+
 
 class App extends Component {
 
@@ -69,29 +71,29 @@ class App extends Component {
 
   };
 
-    callMediaAlpha = () => {
+  //   callMediaAlpha = () => {
 
-  		var tempArray = {
-         zip: this.state.zip_code,
-  }
+  // 		var tempArray = {
+  //        zip: this.state.zip_code,
+  // }
 
-  		window.MediaAlphaExchange = {    
-  			"data": {       
-  				  "zip": tempArray.zip,   
-  			  },   
-  			"placement_id": "YiPFAJc_r0i9fsZr0uP7vvicsinK3Q",    
-  			"sub_1": "test sub id",    
-  			 "type": "ad_unit",   
-  			   "version": 17 }; 
+  // 		window.MediaAlphaExchange = {    
+  // 			"data": {       
+  // 				  "zip": tempArray.zip,   
+  // 			  },   
+  // 			"placement_id": "YiPFAJc_r0i9fsZr0uP7vvicsinK3Q",    
+  // 			"sub_1": "test sub id",    
+  // 			 "type": "ad_unit",   
+  // 			   "version": 17 }; 
 
-  	  window.MediaAlphaExchange__load('mediaalpha_placeholder'); 
+  // 	  window.MediaAlphaExchange__load('mediaalpha_placeholder'); 
 
-  	   }
+  // 	   }
 
 
-  	  UNSAFE_componentWillUpdate  = () => {
-  		console.log(this.state.postData);
-  	  };
+  // 	  UNSAFE_componentWillUpdate  = () => {
+  // 		console.log(this.state.postData);
+  // 	  };
 
 
 
@@ -325,8 +327,10 @@ class App extends Component {
               <ThankYou
 
                 postData2={this.state.postData}
-
+    
               />
+            
+
             </Route>
           </Switch>
 

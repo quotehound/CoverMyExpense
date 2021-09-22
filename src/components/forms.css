@@ -16,6 +16,10 @@
        
 }
 
+.mainDiv{ 
+    max-height: 10%;
+}
+
 a {
     color: #488bff;
 }
