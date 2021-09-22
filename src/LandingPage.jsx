@@ -159,7 +159,7 @@ class LandingPage extends Component {
     <div className="w-full lg:w-1/2 mb-12">
       <div className="lg:max-w-md">
         <h2 className="mb-4 lg:mb-6 text-4xl md:text-5xl mt-3 font-bold font-heading" data-config-id="header">We make insurance <b> Easy </b></h2>
-        <p className="mb-8 text-lg text-gray-500 leading-loose" data-config-id="desc">So you can enjoy the simple things in life.</p>
+        <p className="mb-8 text-2xl text-black leading-loose" data-config-id="desc">So you can enjoy the simple things in life.</p>
         <div className="flex items-start py-4">
           <div className="mr-5 text-gray-500">
             <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
