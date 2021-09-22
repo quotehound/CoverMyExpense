@@ -16,6 +16,17 @@
        
 }
 
+a {
+    color: #488bff;
+}
+
+
+.tcpa {
+    font-size: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 
 .headerText {
     width:100%;
@@ -62,6 +73,17 @@
     text-align: center;
 }
 
+
+.dateButton {
+    min-width: 150px;
+    max-width: 150px;
+    padding: 5px;
+    margin: 10px;
+    font-size: 18px;
+    min-width: 65px;
+    cursor: pointer;
+    text-align: center;
+}
 
 .chooseButton {
    min-width: 200px;

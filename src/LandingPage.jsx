@@ -52,7 +52,7 @@ class LandingPage extends Component {
 
       console.log("updated props with value: ", zipValue);
 
-      this.props.history.push("/gender?zip=" +  zipValue);
+      this.props.history.push("/coverage?zip=" +  zipValue);
     }
       
   }
