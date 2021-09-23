@@ -37,7 +37,7 @@ class Footer extends Component {
               </div>
             </div>
           </div>
-          <div className="container mx-auto px-4 w-1/2 text-center">
+          <div className="container pText">
           <p className="text-sm text-center text-gray-500"> This is a commercial site designed for the solicitation of insurance from selected health and Life insurance carriers. It is not an insurer, an insurance agency, or a medical provider. Insurance agency services may be provided by a partner licensed agency. This site is not maintained by or affiliated with the federal government’s Health Insurance Marketplace website or any state government health insurance marketplace</p>
           </div>
         </section>
