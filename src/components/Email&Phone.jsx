@@ -108,7 +108,7 @@ class EmailPhone extends Component {
         let email = document.getElementById('email_address').value;
         let phone = document.getElementById('phone_home').value;
 
-       let url = "'covermyexpense.com' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + month + '&date=' + date + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName + '&email=' + email + '&phone_home=' + phone"
+       let url = ('covermyexpense.com' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + month + '&date=' + date + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName + '&email=' + email + '&phone_home=' + phone); 
 
     this.props.setURL(url)
 

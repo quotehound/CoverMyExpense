@@ -25,7 +25,7 @@ class MA extends Component {
 
 
 
-                <div id="mediaalpha_placeholder"/>
+                <div/>
 
 
    
