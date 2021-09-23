@@ -23,12 +23,15 @@ class Day extends Component {
         const zip = urlParams.get('zip');
         const gender = urlParams.get('gender');
         const month = urlParams.get('month');
-        const coverage = urlParams.get('coverage')
+        const coverage = urlParams.get('coverage');
+        
 
         this.props.history.push('/year' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + month + '&date=' + d)
     }
 
     render(){
+
+        
         return(
             <div className="back bg-white">
                 <div className="bg-blue-500 headerText justify-center align-middle text-center">
@@ -61,7 +64,7 @@ class Day extends Component {
                                 <div>
                                     <div className="relative flex justify-center text-sm leading-5 con">
                                         <span className="px-2 text-black-500 text-3xl bold header">
-                                            Which Day Were You Born?
+                                            What Date Were You Born?
                                         </span>
                                     </div>
                                 </div>

@@ -165,7 +165,7 @@ class Name extends Component {
 
                                                 </div>
                                             </div>
-                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 " type="submit" onClick={this.nextStep}>Next</button>
+                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 nextButton " type="submit" onClick={this.nextStep}>Next</button>
 
                                         </div>
 

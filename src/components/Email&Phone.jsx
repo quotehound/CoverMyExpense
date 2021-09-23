@@ -90,6 +90,30 @@ class EmailPhone extends Component {
 
     };
 
+    postURL = (values) => {
+
+        const urlSearch = window.location.search;
+
+        const urlParams = new URLSearchParams(urlSearch);
+
+        const zip = urlParams.get('zip');
+        const gender = urlParams.get('gender');
+        const coverage = urlParams.get('coverage');
+        const month = urlParams.get('month');
+        const date = urlParams.get('date');
+        const year = urlParams.get('year');
+        const address = urlParams.get('address');
+        const firstName = urlParams.get('first_name');
+        const lastName = urlParams.get('last_name');
+        let email = document.getElementById('email_address').value;
+        let phone = document.getElementById('phone_home').value;
+
+       let url = "'covermyexpense.com' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + month + '&date=' + date + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName + '&email=' + email + '&phone_home=' + phone"
+
+    this.props.setURL(url)
+
+    }
+
     postEmail = (values) => {
 
         let email = document.getElementById('email_address').value;
@@ -140,6 +164,13 @@ class EmailPhone extends Component {
     render() {
         const { response, loading } = this.state
 
+        const urlSearch = window.location.search;
+
+        const urlParams = new URLSearchParams(urlSearch);
+
+        const firstName = urlParams.get('first_name');
+
+
         return (
             <div>
                 <div className="back bg-white">
@@ -185,7 +216,7 @@ class EmailPhone extends Component {
                                     <div>
                                         <div className="relative flex justify-center text-sm leading-5 con">
                                             <span className="px-2 text-black-500 text-3xl bold header">
-                                                You're Almost There!
+                                                You're Almost There, {firstName}!
                                             </span>
                                         </div>
                                     </div>

@@ -66,6 +66,7 @@ class App extends Component {
       last_name: '',
       email_address: '',
       phone_home: '',
+      entrance_url: '',
 
     },
 
@@ -314,6 +315,15 @@ class App extends Component {
                       phone_home: v,
                     },
                   });
+                }}
+
+                setURL={(v) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      entrance_url: v,
+                    }
+                  })
                 }}
 
 

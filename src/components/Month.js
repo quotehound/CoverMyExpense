@@ -23,6 +23,7 @@ class Month extends Component {
         const gender = urlParams.get('gender');
         const coverage = urlParams.get('coverage')
 
+
         this.props.history.push('/day' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + m);
     }
 

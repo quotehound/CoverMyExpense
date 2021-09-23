@@ -116,7 +116,7 @@ class Address extends Component {
                                               <input className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " type="text" name="address" placeholder="123 Main Street" id="address" minLength={4}/>
                                              </div>
                                         </div>
-                                        <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 " type="submit">Next</button>
+                                        <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 nextButton " type="submit">Next</button>
 
                                     </div>
 
