@@ -39,7 +39,7 @@ class EmailPhone extends Component {
 
         var realPhone = phone.replace(/[0-9]/g, '');
 
-        document.getElementById('tele').value = realPhone;
+        document.getElementById('tele').value = phone;
 
 
         if(email.length < 2){

@@ -12,9 +12,9 @@ class ThankYou extends Component {
       const urlParams = new URLSearchParams(urlSearch);
 
       const firstName = urlParams.get('first_name');
+      const tele = document.getElementById('tele').value;
 
 
-        const phone = document.getElementById('tele').value;
         return (
 
           
@@ -46,7 +46,7 @@ class ThankYou extends Component {
 
 
           </div>
-          <ConnectStreams moduleId="1617" phoneNumber={phone}  />
+          <ConnectStreams moduleId="1617" phoneNumber={tele}  />
 
           </div>
   
