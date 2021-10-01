@@ -108,9 +108,11 @@ class EmailPhone extends Component {
         let email = document.getElementById('email_address').value;
         let phone = document.getElementById('phone_home').value;
 
-       let url = ('covermyexpense.com' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + month + '&date=' + date + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName + '&email=' + email + '&phone_home=' + phone); 
+       let url = window.location.href;
 
-    this.props.setURL(url)
+       console.log(url)
+
+        this.props.setURL(url)
 
     }
 
@@ -175,7 +177,7 @@ class EmailPhone extends Component {
             <div>
                 <div className="back bg-white">
                     <div className="bg-blue-500 headerText justify-center align-middle text-center">
-                        <h2>Get Your Free Life Insurance Quote</h2>
+                        <h2>Get Your Free Final Expense Quote</h2>
                     </div> 
                     <div className="bg-white rounded-lg shadow-xl sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden m-12 formDiv content-center">
                         <div className="px-4 py-8 sm:px-10">
@@ -250,7 +252,7 @@ class EmailPhone extends Component {
                                             </div>
 
                                           
-                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 " type="submit">Get My Free Quote!</button>
+                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 " type="submit" onClick={this.postURL}>Get My Free Quote!</button>
 
                                         </div>
                                         <p className="tcpa">   <input type="hidden" id="leadid_tcpa_disclosure" /> By hitting Next below, I provide my express written consent to the following. Telemarketing calls, text messages, emails, and postal mail from this Web site, our <a href="https://www.quotehound.com/partners"> marketing </a> and re-marketing network, and up to eight insurance companies or their affiliates or representatives at the phone number (including wireless number), email address, and postal address provided by me. Telemarketing calls, text messages, emails, and postal mail (including wireless number), email address, and postal address provided by me. Calls and text messages transmitting insurance quotes, or seeking related additional information from me, using an Automated Telephone Dialing System or prerecorded or artificial voices. Electronic video monitoring and recordation of my activities on this Site. I also understand that my agreement to be contacted is not a condition of purchasing any property, goods, or services and that I may call 1-888-567-1448 to speak with someone about obtaining an insurance quote.  I acknowledge that I may revoke my consent by emailing “STOP” to <a href="mailto:optout@quotehound.com">optout@quotehound.com.</a> I affirm that I have read and agree to this website's <a href="https://www.quotehound.com/privacy-policy"> Privacy Policy </a> and  <a href="https://www.quotehound.com/terms-conditions">Terms of Use</a></p>

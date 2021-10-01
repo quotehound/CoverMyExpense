@@ -187,7 +187,7 @@ class LandingPage extends Component {
             </svg>
           </div>
           <div className="max-w-sm">
-            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header3"><b>No</b> Pushy Agents Or Hidden Fee's</h3>
+            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header3"><b>No</b> Pushy Agents Or Hidden Fees</h3>
           </div>
         </div>
       </div>
