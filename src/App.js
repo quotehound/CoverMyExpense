@@ -52,7 +52,7 @@ class App extends Component {
       trusted_form_cert_id: '',
       jornaya_lead_id: '',
       IP_Address: '',
-      user_agent: navigator.userAgent,
+      useragent: navigator.userAgent,
       zip_code: '',
       desired_coverage: '',
       gender: '',
