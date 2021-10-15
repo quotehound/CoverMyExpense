@@ -43,8 +43,8 @@ class App extends Component {
 
       lp_campaign_id: '60ec904883e96',
       lp_campaign_key: 'HdnykrcQ76bVq8BtWmFK',
-      lp_s1: '12',
-      lp_s2: '13',
+      lp_s3: '12',
+      lp_s4: '13',
       landing_Page: 'covermyexpense.com',
       TCPA_Consent: 'Yes',
       TCPA_Language:
