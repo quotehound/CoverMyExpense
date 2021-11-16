@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import NumberFormat  from 'react-number-format';
+import PhoneInput from 'react-phone-number-input/input'
 
 class EmailPhone extends Component {
 
@@ -140,6 +140,12 @@ class EmailPhone extends Component {
 
         console.log("updated phone is " + realPhone)
 
+          if(phone.length < 14){
+           document.getElementById('next').hidden = true;
+
+            return
+        }
+
         this.props.setPhone(realPhone);
         this.unhide();
 
@@ -150,22 +156,17 @@ class EmailPhone extends Component {
         let email = document.getElementById('email_address').value;
         let phone = document.getElementById('phone_home').value;
 
-        if(phone.length < 10){
-alert('')
 
-        }
-
-       if(email.length == 0){
+       if(email.length === 0 || phone.length === 0 && phone.length < 7){
            document.getElementById('next').hidden = true;
 
-    }
-    
-       else {
+          
+       }
+       else{
            toast.dismiss()
            document.getElementById('next').hidden = false;
 
        }
-
     }
 
 
@@ -271,8 +272,16 @@ alert('')
 
 
                                                         <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0" data-bucket={2}>
-                                                        <NumberFormat format="(###) ###-####" mask="_"  className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " id="phone_home" placeholder="Phone Number" name="phone_home" 
-                                                        onChange={this.postPhone}/>
+                                                        {/* <NumberFormat format="(###) ###-####" mask="_"  className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " id="phone_home" placeholder="Phone Number" name="phone_home" 
+                                                        onChange={this.postPhone}/> */}
+
+                                                         <PhoneInput
+      country="US"
+      className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " id="phone_home" placeholder="Phone Number" name="phone_home" 
+      onChange={this.postPhone} 
+      minLength={10}
+      required
+      />
 
                                                         </div>
                                                     </div>
