@@ -79,6 +79,8 @@ class Name extends Component {
         let firstName = document.getElementById('firstName').value;
 
         this.props.setFName(firstName)
+        this.unhide()
+
 
     }
 
@@ -87,6 +89,26 @@ class Name extends Component {
         let lastName = document.getElementById('lastName').value;
 
         this.props.setLName(lastName)
+        this.unhide()
+
+    }
+
+    unhide(){
+
+        let firstName = document.getElementById('firstName').value;
+        let lastName = document.getElementById('lastName').value;
+        
+
+
+       if(firstName.length == 0 || lastName.length == 0){
+           document.getElementById('next').hidden = true;
+       }
+       else{
+           toast.dismiss()
+           document.getElementById('next').hidden = false;
+
+       }
+
     }
 
 
@@ -165,7 +187,7 @@ class Name extends Component {
 
                                                 </div>
                                             </div>
-                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 nextButton " type="submit" onClick={this.nextStep}>Next</button>
+                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 nextButton" id="next" type="submit" onClick={this.nextStep} hidden={true}>Next</button>
 
                                         </div>
 

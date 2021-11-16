@@ -96,6 +96,8 @@ class EmailPhone extends Component {
 
         const urlParams = new URLSearchParams(urlSearch);
 
+        let phone = document.getElementById('phone_home').value;
+
         const zip = urlParams.get('zip');
         const gender = urlParams.get('gender');
         const coverage = urlParams.get('coverage');
@@ -106,11 +108,16 @@ class EmailPhone extends Component {
         const firstName = urlParams.get('first_name');
         const lastName = urlParams.get('last_name');
         let email = document.getElementById('email_address').value;
-        let phone = document.getElementById('phone_home').value;
 
        let url = window.location.href;
 
        console.log(url)
+
+       if(phone.length < 7){
+           toast.error('Please enter a correct Phone')
+           document.getElementById('next').hidden = true;
+
+       }
 
         this.props.setURL(url)
 
@@ -121,6 +128,8 @@ class EmailPhone extends Component {
         let email = document.getElementById('email_address').value;
 
         this.props.setEmail(email);
+        this.unhide();
+
     }
 
     postPhone = (values) => {
@@ -132,7 +141,33 @@ class EmailPhone extends Component {
         console.log("updated phone is " + realPhone)
 
         this.props.setPhone(realPhone);
+        this.unhide();
+
     }
+
+    unhide(){
+
+        let email = document.getElementById('email_address').value;
+        let phone = document.getElementById('phone_home').value;
+
+        if(phone.length < 10){
+alert('')
+
+        }
+
+       if(email.length == 0){
+           document.getElementById('next').hidden = true;
+
+    }
+    
+       else {
+           toast.dismiss()
+           document.getElementById('next').hidden = false;
+
+       }
+
+    }
+
 
     postFinalExpense = (postData) => {
         console.log(postData);
@@ -252,10 +287,10 @@ class EmailPhone extends Component {
                                             </div>
 
                                           
-                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 " type="submit" onClick={this.postURL}>Get My Free Quote!</button>
+                                            <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 " type="submit" onClick={this.postURL} hidden={true} id="next">Get My Free Quote!</button>
 
                                         </div>
-                                        <p className="tcpa">   <input type="hidden" id="leadid_tcpa_disclosure" /> By hitting Next below, I provide my express written consent to the following. Telemarketing calls, text messages, emails, and postal mail from this Web site, our <a href="https://www.quotehound.com/partners"> marketing </a> and re-marketing network, and up to eight insurance companies or their affiliates or representatives at the phone number (including wireless number), email address, and postal address provided by me. Telemarketing calls, text messages, emails, and postal mail (including wireless number), email address, and postal address provided by me. Calls and text messages transmitting insurance quotes, or seeking related additional information from me, using an Automated Telephone Dialing System or prerecorded or artificial voices. Electronic video monitoring and recordation of my activities on this Site. I also understand that my agreement to be contacted is not a condition of purchasing any property, goods, or services and that I may call 1-888-567-1448 to speak with someone about obtaining an insurance quote.  I acknowledge that I may revoke my consent by emailing “STOP” to <a href="mailto:optout@quotehound.com">optout@quotehound.com.</a> I affirm that I have read and agree to this website's <a href="https://www.quotehound.com/privacy-policy"> Privacy Policy </a> and  <a href="https://www.quotehound.com/terms-conditions">Terms of Use</a></p>
+                                        <p className="tcpa">   <input type="hidden" id="leadid_tcpa_disclosure" /> By hitting Get My Free Quote above, I provide my express written consent to the following. Telemarketing calls, text messages, emails, and postal mail from this Web site, our <a href="https://www.quotehound.com/partners"> marketing </a> and re-marketing network, and up to eight insurance companies or their affiliates or representatives at the phone number (including wireless number), email address, and postal address provided by me. Telemarketing calls, text messages, emails, and postal mail (including wireless number), email address, and postal address provided by me. Calls and text messages transmitting insurance quotes, or seeking related additional information from me, using an Automated Telephone Dialing System or prerecorded or artificial voices. Electronic video monitoring and recordation of my activities on this Site. I also understand that my agreement to be contacted is not a condition of purchasing any property, goods, or services and that I may call (888) 292-2361 to speak with someone about obtaining an insurance quote.  I acknowledge that I may revoke my consent by emailing “STOP” to <a href="mailto:optout@quotehound.com">optout@quotehound.com.</a> I affirm that I have read and agree to this website's <a href="https://www.quotehound.com/privacy-policy"> Privacy Policy </a> and  <a href="https://www.quotehound.com/terms-conditions">Terms of Use</a></p>
                                     </form>
 
                                 </div>
