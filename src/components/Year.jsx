@@ -38,6 +38,8 @@ class Year extends Component {
         
     let year = document.getElementById('year').value;
 
+    this.checkValue(values);
+
     if(year.length < 4){
         toast.error("😬 Please enter a valid Year!");   
         values.preventDefault();
@@ -58,6 +60,21 @@ class Year extends Component {
         this.props.history.push('/address' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + month + '&date=' + date + '&year=' + year)
     }
       
+  }
+
+  checkValue(values){
+    let year = document.getElementById('year').value;
+
+    var yearNumb = Number(year);
+
+    if(yearNumb < 1901){
+
+        toast.error('😬 Please enter a valid Year!');
+        values.preventDefault();
+
+        return
+
+    }
   }
 
 
@@ -117,10 +134,10 @@ class Year extends Component {
 
                                             <div className="text-sm leading-5 buttonBlockRow">
 
-                                              <input className="appearance-none w-1/2 p-3 text-lg font-semibold leading-none bg-white rounded zipInput " type="text" name="year" placeholder="####" pattern="\d*" id="year" maxLength={4}/>
+                                              <input className="appearance-none w-1/2 p-3 text-lg font-semibold leading-none bg-white rounded zipInput " type="text" name="year" placeholder="####" pattern="\d*" id="year" maxLength={4} />
                                              </div>
                                         </div>
-                                        <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 nextButton" type="submit">Next</button>
+                                        <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 nextButton" type="submit" onClick={this.checkValue}>Next</button>
 
                                     </div>
 
