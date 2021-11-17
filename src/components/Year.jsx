@@ -67,7 +67,7 @@ class Year extends Component {
 
     var yearNumb = Number(year);
 
-    if(yearNumb < 1901){
+    if(yearNumb < 1910){
 
         toast.error('😬 Please enter a valid Year!');
         values.preventDefault();
