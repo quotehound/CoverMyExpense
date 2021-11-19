@@ -52,7 +52,15 @@ class LandingPage extends Component {
 
       console.log("updated props with value: ", zipValue);
 
-      this.props.history.push("/coverage?zip=" +  zipValue);
+      const urlSearch = window.location.search;
+
+      const urlParams = new URLSearchParams(urlSearch);
+
+      const gclid = urlParams.get('gclid');
+      
+      const lp = urlParams.get('lp_requestid');
+
+      this.props.history.push("/coverage" + "?gclid=" + gclid + "&lp_requestid=" + lp + "&zip=" +  zipValue);
     }
       
   }

@@ -104,6 +104,22 @@ LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
 
   <input type="hidden" id="tele" name="tele" value="" />
 
+  <input type="hidden" id="lp" name="lp" /> 
+  <input type="hidden" id="gclid" name="gclid" /> 
+
+
+  <script> 
+    const urlSearch = window.location.search;
+
+    const urlParams = new URLSearchParams(urlSearch);
+
+    const lp = urlParams.get('lp_requestid');
+    const gclid = urlParams.get('gclid')
+
+    document.getElementById('lp').value = lp;
+    document.getElementById('gclid').value = gclid;
+    </script> 
+
   
 
 
