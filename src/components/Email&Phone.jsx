@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import PhoneInput from 'react-phone-number-input/input'
+import NumberFormat  from 'react-number-format';
 
 class EmailPhone extends Component {
 
