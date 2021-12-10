@@ -153,7 +153,7 @@ class LandingPage extends Component {
     </div>
 
    <div className="inline-block mx-auto mb-6 flex items-center justify-center rounded-full p-10 "> 
-   <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-white font-medium leafing-normal bg-blue-400 hover:bg-blue-600 hover:shadow-lg rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your No Quote Quote</a>
+   <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-white font-medium leafing-normal bg-blue-400 hover:bg-blue-600 hover:shadow-lg rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your No Obligation Quote</a>
 
    </div>
 
