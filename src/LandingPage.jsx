@@ -138,7 +138,7 @@ class LandingPage extends Component {
 
         </span>
         <h3 className="mb-4 text-2xl font-bold font-heading" data-config-id="header3">Get Connected </h3>
-        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Connect with real rates accross our network and geet connected with real rates.</p>
+        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Connect with real rates across our network.</p>
 
 
       </div>
