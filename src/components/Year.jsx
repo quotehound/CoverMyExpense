@@ -54,7 +54,9 @@ class Year extends Component {
 
 
  this.props.setYear(year);
- this.props.setDOB(month + '/' + date + '/' + year)
+        this.props.setDOB(month + '/' + date + '/' + year)
+        
+        document.getElementById('yearT').value = year;
 
       
         this.props.history.push('/address' + '?zip=' + zip +  '&coverage=' + coverage + '&gender=' + gender + '&month=' + month + '&date=' + date + '&year=' + year)

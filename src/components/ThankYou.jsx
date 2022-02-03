@@ -40,13 +40,16 @@ class ThankYou extends Component {
           </div>
 
 
-          <MA />
 
           </div>
 
 
           </div>
           <ConnectStreams moduleId="1657" phoneNumber={tele}  />
+            {/* <MA /> */}
+            <div id="transparently-ads">
+</div>
+
 
           </div>
   

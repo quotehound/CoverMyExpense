@@ -6,6 +6,7 @@ import './App.css';
 import NavBar from './NavBar';
 
 import LandingPage from './LandingPage';
+import WhoYouAre from './components/WhoYouAre'
 import Coverage from './components/Coverage';
 import Gender from './components/Gender';
 import Month from './components/Month';
@@ -27,6 +28,7 @@ class App extends Component {
     route: '/',
     routes: [
       '/',
+      '/who',
       '/coverage',
       '/gender',
       '/month',
@@ -55,7 +57,9 @@ class App extends Component {
       jornaya_lead_id: '',
       IP_Address: '',
       user_agent: navigator.userAgent,
-      zip_code: '',
+      zip_code: localStorage.getItem('zip'),
+      city: localStorage.getItem('city'),
+      state: localStorage.getItem('state'),
       desired_coverage: '',
       gender: '',
       month: '',
@@ -151,6 +155,21 @@ class App extends Component {
                 }
                 }
 
+              />
+
+            </Route>
+
+            <Route path='/coverage-type' exact>
+              <WhoYouAre
+ setCoverageType={(v) => {
+  this.setState({
+    postData: {
+      ...this.state.postData,
+
+      coverage_type: v,
+    },
+  });
+}}
               />
 
             </Route>

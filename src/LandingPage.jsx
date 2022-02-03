@@ -3,10 +3,15 @@ import { withRouter } from 'react-router';
 
 import './LandingPage.css';
 
-
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css';
 
+import NavBar from './NavBar'
+
+
+
+import $ from 'jquery'; 
+import { ziptastic } from 'jquery';
 
 import Logo from './Assets/cme.png';
 
@@ -18,41 +23,96 @@ import Form from './Assets/Form.svg';
 
 class LandingPage extends Component {
 
- 
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
+    
+        this.state = {zip_code: ''};
+    
+        this.nextStep = this.nextStep.bind(this);
+        this.nextStep = this.nextStep.bind(this);
+      }
 
-    this.state = {zip_code: ''};
+      validateZip = (values) => {
 
-    this.nextStep = this.nextStep.bind(this);
-    this.nextStep = this.nextStep.bind(this);
-  }
-
-
-  nextStep (values) {
-        
-    let zipValue = document.getElementById('zipCode').value;
-
-    if(zipValue.length < 5){
-        toast.error("😬 Please enter a valid zip code!");  
-        
         values.preventDefault();
-    }
-    else{
+    
+        let val = document.getElementById('zip').value;
+        
+        if(val.length < 5){
+          console.log('wrong length');
+          return 
+        }
+      
+    
+        else {
+    
+          var ziptastic = require('ziptastic');
+    
+          let zipVal = document.getElementById('zip').value;
+    
+    
+          var requestOptions = {
+            async: true,
+            crossDomain: true,
+            method: 'GET',
+            redirect: 'follow',
+            url:'https://ziptasticapi.com/' + zipVal
+          };
+    
+          $.ajax(requestOptions).done(function(response){
+            console.log(response);
+    
+            var parse = JSON.parse(response);
+    
+    
+            if (parse.error) {
+              toast.error('Please enter a correct zip code');
+              document.getElementById('submit').disabled = true;
+    
+            }
+    
+            else {
+    
+              document.getElementById('submit').disabled = false;
+    
+              localStorage.setItem('zip', val);
+    
+              document.getElementById('zipCode').value = val
+              document.getElementById('zip').value = val;
+        
+              let zipVal = localStorage.getItem('zip');
+    
+              let city = parse.city;
+            let state = parse.state;
+    
+            localStorage.setItem('city', city);
+            localStorage.setItem('state', state);
+    
+            document.getElementById('city').value = city;
+              document.getElementById('state').value = state;
+            }
+    
+            
+          })
+    
+          
+    
+        }
+      }
 
-      values.preventDefault();
+  nextStep(values) {
+    let zipValue = localStorage.getItem('zip');
+    document.getElementById('submit').isDisabled = false;
 
-      toast.dismiss();
+    values.preventDefault();
+    
+    toast.dismiss();
 
-      console.log("success: ", zipValue);
+    console.log('success', zipValue)
 
-      this.setState({zip_code: zipValue})
-
-      this.props.setZipCode(zipValue);
-
-      console.log("updated props with value: ", zipValue);
-
-      const urlSearch = window.location.search;
+    this.setState({ zip_code: zipValue })
+    
+    const urlSearch = window.location.search;
 
       const urlParams = new URLSearchParams(urlSearch);
 
@@ -60,20 +120,25 @@ class LandingPage extends Component {
       
       const lp = urlParams.get('lp_requestid');
 
-      this.props.history.push("/coverage" + "?gclid=" + gclid + "&lp_requestid=" + lp + "&zip=" +  zipValue);
-    }
+      this.props.history.push("/coverage-type" + "?gclid=" + gclid + "&lp_requestid=" + lp + "&zip=" +  zipValue);
+
+      }
+  
+    
+      autoFocusClick() {
+        document.getElementById('zip').focus();
+      }
+
+
+  render() {
       
-  }
 
-  autoFocusClick() {
-    document.getElementById('zipCode').focus();
-  }
-
-    render() {
+    const zippy = localStorage.getItem('zip');
+    const state = localStorage.getItem('state');
+    const city = localStorage.getItem('city');
         return (
             <div>
-              
-{/* End of header with Form */}
+            {/* End of header with Form */}
 
 {/* Start Of how it works */}
 <section className="relative pb-10 overflow-hidden backdrop">
@@ -92,12 +157,13 @@ class LandingPage extends Component {
   <div className="relative z-10 container px-4 mx-auto">
     <div className="max-w-4xl pt-20">
       
-      <h2 className="mt-8 mb-8 text-5xl lg:text-7xl text-white font-bold" data-config-id="header">Compare Multiple Final Expense Insurance Quotes</h2>
+                  <h2 className="mt-8 mb-8 text-5xl lg:text-7xl text-white font-bold" data-config-id="header">Compare Multiple Final Expense Insurance Quotes</h2>
       <form onSubmit={this.nextStep} >
 
-<div className="flex justify items-center formSection py-10">
-<input className="appearance-none w-1/2 p-3 text-lg font-semibold leading-none bg-white rounded zipInput " type="text" name="addressField" placeholder="Zip Code" pattern="\d*" value={this.state.value} id="zipCode" maxLength={5}/>
-<button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 zipSubmit" type="submit">Start My Quote</button>
+                    <div className="flex justify items-center formSection py-10">
+                      
+<input className="appearance-none w-1/2 p-3 text-lg font-semibold leading-none text-center bg-white rounded zipInput " type="text" name="addressField" placeholder="Zip Code" pattern="\d*" defaultValue={zippy}  onChange={this.validateZip} id="zip" minLength={5} maxLength={5} />
+<button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 zipSubmit" type="submit" id='submit' disabled={false}>Start My Quote</button>
 
 </div>
 
@@ -109,7 +175,7 @@ class LandingPage extends Component {
     <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-8 bg-white border-r overflow-y-auto">
       <div className="flex items-center mb-16 pr-6">
         <a className="ml-16 mr-auto text-xl text-blue-800 font-semibold leading-none" href="/" data-config-id="brand">
-          <img className="h-7" src={Logo} alt="" width="auto" al />
+          <img className="h-7" src={Logo} alt="" width="auto" />
         </a>
       </div>
      
@@ -138,7 +204,7 @@ class LandingPage extends Component {
 
         </span>
         <h3 className="mb-4 text-2xl font-bold font-heading" data-config-id="header3">Get Connected </h3>
-        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Connect with real rates across our network.</p>
+        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Get connected with A-Rated Agents.</p>
 
 
       </div>
@@ -153,7 +219,7 @@ class LandingPage extends Component {
     </div>
 
    <div className="inline-block mx-auto mb-6 flex items-center justify-center rounded-full p-10 "> 
-   <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-white font-medium leafing-normal bg-blue-400 hover:bg-blue-600 hover:shadow-lg rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your No Obligation Quote</a>
+   <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-white font-medium leafing-normal bg-blue-400 hover:bg-blue-600 hover:shadow-lg rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your Free Quote</a>
 
    </div>
 
@@ -175,7 +241,7 @@ class LandingPage extends Component {
             </svg>
           </div>
           <div className="max-w-sm">
-            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header1"><b>No</b> Medical Exams</h3>
+            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header1"><b>Quick</b> And Reliable</h3>
           </div>
         </div>
         <div className="flex items-start py-4">
@@ -195,7 +261,7 @@ class LandingPage extends Component {
             </svg>
           </div>
           <div className="max-w-sm">
-            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header3"><b>No</b> Hidden Fees</h3>
+            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header3"><b>No</b> Pushy Agents Or Hidden Fees</h3>
           </div>
         </div>
       </div>
@@ -214,30 +280,27 @@ class LandingPage extends Component {
         <a className="inline-block mb-6 text-gray-900 text-lg font-semibold" href="/" data-config-id="brand">
           <img className="h-7" src={Logo} alt="" width="auto" />
         </a>
-        <p className="hidden lg:block text-sm text-gray-500" data-config-id="copy">All rights reserved © Quotehound 2021</p>
+        <p className="hidden lg:block text-sm text-gray-500" data-config-id="copy">All rights reserved © Pick Your Health Quotes</p>
       </div>
       <div className="w-full lg:w-4/6 px-4">
         <div className="flex flex-wrap items-center justify-end">
           <ul className="w-full lg:w-auto inline-flex flex-wrap mb-4 lg:mb-0 md:mr-6 lg:mr-12">
-            <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium" href="https://www.
-hound.com/dont-sell-my-info" data-config-id="01_link1">Do Not Sell</a></li>
+            <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium" href="https://www.quotehound.com/dont-sell-my-info" data-config-id="01_link1">Do Not Sell</a></li>
             <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium"  href="https://www.quotehound.com/privacy-policy" data-config-id="01_link2">Privacy Policy</a></li>
             <li className="mr-12 mb-2 md:mb-0"><a className="text-sm font-medium"  href="https://www.quotehound.com/terms-conditions" data-config-id="01_link3">Terms & Conditions</a></li>
           </ul>
-          <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-white font-medium leafing-normal bg-blue-500 hover:bg-blue-300 hover:shadow-lg rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your No Obligation Quote</a>
+          <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-white font-medium leafing-normal bg-blue-500 hover:bg-blue-300 hover:shadow-lg rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your Free Quote</a>
         </div>
         <p className="mt-6 lg:hidden text-sm text-gray-500" data-config-id="copy">All rights reserved © Quotehound 2021</p>
       </div>
     </div>
   </div>
 
-  <div className="container mx-auto px-4 lg:w-1/2 md:w-full text-center">
-          <p className="text-sm text-center text-gray-500"> This is a commercial site designed for the solicitation of insurance from selected health and Life insurance carriers. It is not an insurer, an insurance agency, or a medical provider. Insurance agency services may be provided by a partner licensed agency. This site is not maintained by or affiliated with the federal government’s Health Insurance Marketplace website or any state government health insurance marketplace</p>
-          </div>
+  
 </section>
             </div>
         )
-    }
+        }
 }
 
 export default withRouter(LandingPage)
