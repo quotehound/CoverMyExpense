@@ -48,7 +48,7 @@ class App extends Component {
       lp_s3: '12',
       lp_s4: '13',
       landing_Page: 'covermyexpense.com',
-      lp_requestid: document.getElementById('lp').value,
+      lp_request_id: document.getElementById('lp').value,
       gclid: document.getElementById('gclid').value,
       TCPA_Consent: 'Yes',
       TCPA_Language:
