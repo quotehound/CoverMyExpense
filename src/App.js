@@ -183,6 +183,7 @@ class App extends Component {
                       desired_coverage: v,
                     },
                   });
+                  console.log(this.state.postData)
                 }}
 
               />
