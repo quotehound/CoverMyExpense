@@ -118,7 +118,10 @@ class LandingPage extends Component {
 
       const gclid = urlParams.get('gclid');
       
-      const lp = urlParams.get('lp_requestid');
+    const lp = urlParams.get('lp_requestid');
+    
+    this.props.setLp(lp)
+
 
       this.props.history.push("/coverage-type" + "?gclid=" + gclid + "&lp_requestid=" + lp + "&zip=" +  zipValue);
 
