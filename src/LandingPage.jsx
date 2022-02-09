@@ -125,7 +125,7 @@ class LandingPage extends Component {
     this.props.setLp(lp)
 
 
-      this.props.history.push("/coverage-type" + "?gclid=" + gclid + "&lp_requestid=" + lp + "&zip=" +  zipValue);
+      this.props.history.push("/coverage-type" + "?gclid=" + gclid + "&lp_request_id=" + lp + "&zip=" +  zipValue);
 
       }
   
