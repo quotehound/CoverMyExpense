@@ -119,6 +119,8 @@ class LandingPage extends Component {
       const gclid = urlParams.get('gclid');
       
     const lp = urlParams.get('lp_request_id');
+
+    console.log(lp)
     
     this.props.setLp(lp)
 
