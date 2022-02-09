@@ -143,6 +143,14 @@ class WhoYouAre extends Component {
 
                                             <div className="text-sm leading-5 buttonBlock">
 
+                                            <label className="inline-flex items-center mt-3">
+                                                    <input type="checkbox" className="checkbox form-checkbox rounded h-7 w-7 text-blue-600" value={"burial_expense"} data-value="burial_expense" onChange={this.onNext} /><span className="ml-2 text-lg text-black font-medium">I want to cover burial expenses</span>
+                                                </label>
+
+                                                <label className="inline-flex items-center mt-3">
+                                                    <input type="checkbox" className="checkbox form-checkbox rounded h-7 w-7 text-blue-600" value={"mortgage"} data-value="mortgage" onChange={this.onNext} /><span className="ml-2 text-lg text-black font-medium">I want to cover my mortgage</span>
+                            </label>
+
                                                 <label className="inline-flex items-center mt-3">
                                                     <input type="checkbox" className="checkbox form-checkbox rounded h-7 w-7 text-blue-600" data-value="retirement" value={"retirement"}  onChange={this.onNext} /><span className="ml-2 text-lg text-black font-medium">I'm planning for retirement</span>
                                                 </label>
@@ -159,17 +167,13 @@ class WhoYouAre extends Component {
                                                     <input type="checkbox" className="checkbox form-checkbox rounded h-7 w-7 text-blue-600" value={"investments"} data-value="investments" onChange={this.onNext} /><span className="ml-2 text-lg text-black font-medium">I want to invest my money</span>
                                                 </label>
 
-                                                <label className="inline-flex items-center mt-3">
-                                                    <input type="checkbox" className="checkbox form-checkbox rounded h-7 w-7 text-blue-600" value={"burial_expense"} data-value="burial_expense" onChange={this.onNext} /><span className="ml-2 text-lg text-black font-medium">I want to cover burial expenses</span>
-                                                </label>
+                                             
 
                                                 <label className="inline-flex items-center mt-3">
                                                     <input type="checkbox" className="checkbox form-checkbox rounded h-7 w-7 text-blue-600" value={"support_spouse"} data-value="support_spouse" onChange={this.onNext} /><span className="ml-2 text-lg text-black font-medium">I want to support my spouse</span>
                             </label>
                             
-                            <label className="inline-flex items-center mt-3">
-                                                    <input type="checkbox" className="checkbox form-checkbox rounded h-7 w-7 text-blue-600" value={"mortgage"} data-value="mortgage" onChange={this.onNext} /><span className="ml-2 text-lg text-black font-medium">I want to cover my mortgage</span>
-                            </label>
+                   
                             
                             <label className="inline-flex items-center mt-3">
                                                     <input type="checkbox" className="checkbox form-checkbox rounded h-7 w-7 text-blue-600" value={"support_children"} data-value="support_children" onChange={this.onNext} /><span className="ml-2 text-lg text-black font-medium">I want to support my children</span>
