@@ -144,7 +144,7 @@ class WhoYouAre extends Component {
                                             <div className="text-sm leading-5 buttonBlock">
 
                                             <label className="inline-flex items-center mt-3">
-                                                    <input type="checkbox" className="checkbox form-checkbox rounded h-7 w-7 text-blue-600" value={"burial_expense"} data-value="burial_expense" onChange={this.onNext} /><span className="ml-2 text-lg text-black font-medium">I want to cover burial expenses</span>
+                                                    <input type="checkbox" className="checkbox form-checkbox rounded h-7 w-7 text-blue-600" value={"burial_expense"} data-value="burial_expense" onChange={this.onNext} defaultChecked={true} /><span className="ml-2 text-lg text-black font-medium">I want to cover burial expenses</span>
                                                 </label>
 
                                                 <label className="inline-flex items-center mt-3">
@@ -182,7 +182,7 @@ class WhoYouAre extends Component {
                                             </div>
                                         </div>
 
-                                        <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 nextButton" hidden id='next' onClick={this.step} >Next</button>
+                                        <button className="px-6 py-4 mb-3 m-2 text-md font-bold bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 nextButton" id='next' onClick={this.step} >Next</button>
                                     </div>
 
                                 </form>
