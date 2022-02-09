@@ -129,10 +129,10 @@ class WhoYouAre extends Component {
 
 
                                 <div>
-                                    <div className="relative flex justify-cente leading-5 ">
-                        <span className="px-2 text-black-500 text-2xl bold">
-                          Tell Us About Yourself, & We Help Find The Right Plan
-                        </span>
+                                    <div className="relative flex justify-center leading-5 ">
+                                    <span className="px-2 text-black-500 text-3xl  header">
+                                               Tell us about yourself
+                                            </span>
                         
                       </div>
                       <p><b>Select all that apply to you</b></p>
