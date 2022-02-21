@@ -8,17 +8,15 @@ class MA extends Component {
 
         const renderScript = document.createElement("script");
 
-        renderScript.innerHTML = "var data = { 'frequencyexercise' : '2' , 'policyamount' : '3' , 'pubcampaignid' : '7574' ,'zipcode' : localStorage.getItem('zip') , 'vertical' : '5', 'state' : localStorage.getItem('state') }; Transparently.Render(data)";
-        
+        //  renderScript.innerHTML = "window.MediaAlphaExchange = {'data': { 'zip': document.getElementById('zipCode').value}, 'placement_id': 'YiPFAJc_r0i9fsZr0uP7vvicsinK3Q','sub_1': 'test sub id', 'type': 'ad_unit', 'version': 17}; window.MediaAlphaExchange__load('mediaalpha_placeholder'); ";
 
          document.body.appendChild(renderScript);
 
          const script = document.createElement("script");
 
-         script.src = "https://api.transparent.ly/search/blue/green/Loader";
+         script.src = "//insurance.mediaalpha.com/js/serve.js";
          script.async = true;
-        document.body.appendChild(script);
-        
+         document.body.appendChild(script);
         
     }
 
@@ -28,7 +26,7 @@ class MA extends Component {
 
 
 
-<div id="transparently-ads" />
+            <div />
 
 
 
