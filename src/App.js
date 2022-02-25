@@ -56,9 +56,7 @@ class App extends Component {
        
       IP_Address: '',
       user_agent: navigator.userAgent,
-      zip_code: localStorage.getItem('zip'),
-      city: localStorage.getItem('city'),
-      state: localStorage.getItem('state'),
+
       desired_coverage: '',
       gender: '',
       month: '',
@@ -146,7 +144,7 @@ class App extends Component {
                     postData: {
                       ...this.state.postData,
                       
-                      zip_code: v
+                      //zip_code: v
                     },
                   });
 
@@ -159,6 +157,9 @@ class App extends Component {
                       lp_request_id: u,
                       jornaya_lead_id: document.getElementById('leadid_token').value,
                       trusted_form_cert_id: document.getElementById('xxTrustedFormToken_0').value,
+                            zip_code: document.getElementById('zip').value,
+      city: document.getElementById('city').value,
+      state: document.getElementById('state').value,
                     }
                   })
                 }}
