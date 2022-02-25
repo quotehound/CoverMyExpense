@@ -157,7 +157,7 @@ class App extends Component {
                       lp_request_id: u,
                       jornaya_lead_id: document.getElementById('leadid_token').value,
                       trusted_form_cert_id: document.getElementById('xxTrustedFormToken_0').value,
-                            zip_code: document.getElementById('zip').value,
+                            zip_code: document.getElementById('zipCode').value,
       city: document.getElementById('city').value,
       state: document.getElementById('state').value,
                     }
